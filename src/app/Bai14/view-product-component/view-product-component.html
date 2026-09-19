@@ -1,0 +1,59 @@
+<table
+  border="1"
+  cellpadding="8"
+  cellspacing="0"
+  style="border-collapse: collapse; min-width: 500px"
+>
+  <thead>
+    <tr>
+      <th>Ma Danh Muc</th>
+      <th>Ten Danh Muc</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (cate of categories; track cate.Cateid) {
+      <tr>
+        <td>{{ cate.Cateid }}</td>
+        <td>{{ cate.CateName }}</td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="padding: 0">
+          <table
+            border="1"
+            cellpadding="8"
+            cellspacing="0"
+            style="width: 100%; border-collapse: collapse; border-style: hidden"
+          >
+            <thead>
+              <tr>
+                <th>Ma San Pham</th>
+                <th>Ten San Pham</th>
+                <th>Gia San Pham</th>
+                <th>Anh</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (p of cate.Products; track p.ProductId) {
+                <tr>
+                  <td>{{ p.ProductId }}</td>
+                  <td>{{ p.ProductName }}</td>
+                  <td>{{ p.Price }}</td>
+                  <td style="text-align: center">
+                    <img
+                      [src]="p.Image"
+                      [alt]="p.ProductName"
+                      width="40"
+                      style="object-fit: cover"
+                    />
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
