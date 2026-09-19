@@ -8,13 +8,11 @@ import { CatalogService } from '../catalog-service';
   templateUrl: './view-product-component.html',
 })
 export class ViewProductComponent implements OnInit {
-  // Đổi tên biến thành categories vì service trả về danh mục
   public categories: any[] = [];
 
   constructor(private catalogService: CatalogService) {}
 
   ngOnInit(): void {
-    // Gọi dữ liệu từ service khi component khởi tạo
     this.categories = this.catalogService.getCategories();
   }
 }
