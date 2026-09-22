@@ -1,0 +1,37 @@
+<p>json-object-model works!</p>
+
+<table
+  border="1"
+  cellpadding="8"
+  cellspacing="0"
+  style="border-collapse: collapse; min-width: 500px"
+>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (cate of customers; track cate.CustomerTypeId) {
+      <tr>
+        <td colspan="5">{{ cate.CustomerTypeId }} - {{ cate.CustomterTypeName }}</td>
+      </tr>
+      @for (cus of cate.Customers; track cus.Id) {
+        <tr>
+          <td>{{ cus.Id }}</td>
+          <td>{{ cus.Name }}</td>
+          <td>{{ cus.Email }}</td>
+          <td>{{ cus.Age }}</td>
+          <td style="text-align: center">
+            <img [src]="cus.Image" [alt]="cus.Name" width="80" style="object-fit: cover" />
+          </td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>
